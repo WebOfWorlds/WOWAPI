@@ -122,8 +122,31 @@ paths:
               schema:
                 $ref: "#/components/schemas/Portal"        
 
-#--- Spatial Composition Graph         
-  /wow/scene/node/{nodeId}:
+#--- Spatial Composition Graph      
+
+  /wow/spatial/{spatialID}:
+
+    get:
+      tags: 
+        - Spatial Composition Graph 
+      summary: Returns a single Spatial status as a single data state 
+      parameters:
+        - name: spatialID
+          in: path
+          description: ID of note to return
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200": # status code
+          description: "world summary"
+          content:
+            application/json:             
+              schema:
+                $ref: "#/components/schemas/Spatial"    
+  
+
+  /wow/spatial/{spatialID}/node/{nodeId}:
 
     post:
       tags:
@@ -401,6 +424,39 @@ components:
                 roll:
                   type: number      
 
+    Spatial: 
+      type: object
+      properties:
+            
+        id: 
+          type: number
+
+        rootNodeID: 
+          type: number
+
+        geoPose:
+          type: object
+          properties:
+            position:
+              type: object
+              properties:
+                lat: 
+                  type: number
+                lan:
+                  type: number
+                h:
+                  type: number
+            angles:
+              type: object
+              properties:
+                yaw:
+                  type: number
+                pitch:
+                  type: number
+                roll:
+                  type: number      
+
+ 
     Node: 
       type: object
       properties:
