@@ -19,6 +19,7 @@ paths:
       tags:
         - web app
       summary: Provisions a web application to deliver the spatial experience on the given device 
+      operationId: getDefaultApp
       responses:
         "200": # status code
           description: "web application"
@@ -33,6 +34,7 @@ paths:
       tags:
         - world
       summary: Returns a World status as a single data state 
+      operationId: getWorldStatus
       responses:
         "200": # status code
           description: "world summary"
@@ -47,6 +49,7 @@ paths:
       tags:
         - user
       summary: Returns a User status  
+      operationId: getUserById
       parameters:
         - name: userId
           in: path
@@ -65,6 +68,7 @@ paths:
       tags:
         - user
       summary: Deletes a user
+      operationId: deleteUserById
       parameters:
         - name: userId
           in: path
@@ -86,6 +90,7 @@ paths:
       tags: 
         - view
       summary: Returns a Viewpoint status 
+      operationId: getViewById
       parameters:
         - name: viewId
           in: path
@@ -107,6 +112,7 @@ paths:
       tags: 
         - portal
       summary: Returns a Portal status
+      operationId: getPortalById
       parameters:
         - name: portalId
           in: path
@@ -130,6 +136,7 @@ paths:
       tags: 
         - Spatial Composition Graph 
       summary: Returns a single Spatial status as a single data state 
+      operationId: getSpatialById
       parameters:
         - name: spatialID
           in: path
@@ -151,7 +158,8 @@ paths:
     post:
       tags:
         - Spatial Composition Graph
-      summary: Create and add new nodes from a node array.
+      summary: Create and add new nodes.
+      operationId: addNewNodes
       parameters:
         - name: nodeId
           in: path
@@ -181,7 +189,8 @@ paths:
     get:
       tags: 
         - Spatial Composition Graph 
-      summary: Returns a single Node status as a single data state 
+      summary: Returns a single Node tree as a single data state 
+      operationId: getNodeTreeById
       parameters:
         - name: nodeId
           in: path
@@ -200,6 +209,7 @@ paths:
       tags:
         - Spatial Composition Graph
       summary: Update an existing node.
+      operationId: updateNodeById
       parameters:
         - name: nodeId
           in: path
@@ -233,6 +243,7 @@ paths:
       tags:
         - Spatial Composition Graph
       summary: Deletes a node
+      operationId: deleteNodeById
       parameters:
         - name: nodeid
           in: path
