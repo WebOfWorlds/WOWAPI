@@ -484,7 +484,7 @@ components:
         children:
           type: array
           items:
-            type: object
+            $ref: '#/components/schemas/Node'
         localTransform:
           type: array 
           items:
